@@ -11,7 +11,7 @@ class Handler(base.Handler):
                     with self.tag("div", klass="container"):
                         with self.tag("div", klass="row"):
                             with self.tag("center"):
-                                self.doc.stag("img", ("height", "400px"), src="static/slide_min.png")
+                                self.doc.stag("img", ("height", "400px"), src="static/slide.png")
                         with self.tag("div", klass="row"):
                             with self.tag("center"):
                                 with self.tag("h2"):
