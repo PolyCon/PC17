@@ -1,5 +1,7 @@
 import tornado.web
 from handlers import base
+import requests
+from bs4 import BeautifulSoup
 
 class Handler(base.Handler):
     def getGen(self):
@@ -11,10 +13,6 @@ class Handler(base.Handler):
                     with self.tag("div", klass="container"):
                         with self.tag("div", klass="row"):
                             with self.tag("center"):
-                                self.doc.stag("img", ("height", "400px"), src="static/slide_min.png")
-                        with self.tag("div", klass="row"):
-                            with self.tag("center"):
-                                with self.tag("h2"):
-                                    with self.tag("font", ("color", "#583F9A")):
-                                        self.text("Coming Soon!")
+                                soup = BeautifulSoup(requests.get("https://docs.google.com/forms/d/e/1FAIpQLSfTI1Rs4inaRiuqdvlyHdrsydSMOYiEPwaWreaRwLkMwp5aEw/viewform?key=pqbhTz7PIHum_4qKEdbUWVg").text)
+                                self.doc.asis(str(soup.find("form")))
         return self.doc.getvalue()
