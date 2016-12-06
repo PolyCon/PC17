@@ -1,0 +1,23 @@
+##PolyCon Improvement Survey
+####Complete this survey so that you can improve planning for PolyCon 2017---!!
+###Do you currently attend Florida Polytechnic University?
+rb:attends_fpu,yes,no
+###Did you attend PolyCon last year?
+rb:attended_polycon,Yes,No
+npb
+##Panels
+###What did you like about the panels?
+t:Liked
+###What do you think would improve the panels?
+t:Improve
+npb
+##PolyCon '17
+###What would you like to see added to PolyCon?
+t:Add
+###How did you hear about PolyCon last year?
+cb:heard,Facebook,Twitter,Email,Flyers,Newspaper,Word_of_Mouth,Florida_Poly_Students,Didn't
+###How likely are you to attend this year? (April 2017)
+rf:10,Not Likely,Likely
+npb
+##Submit Your Responses
+sub
