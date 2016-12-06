@@ -1,20 +1,17 @@
 import tornado.web
 from handlers import base
+import os
 
 class Handler(base.Handler):
-    def getGen(self):
+    def getGen(self, arguments):
         self.cr()
         with self.tag("html"):
-            self.doc.asis(self.g.head("PolyCon 2017", "static/slide_min.png"))
+            self.doc.asis(self.g.head("PolyCon 2017", "{0}/logo_300.png".format(self.l)))
             with self.tag("body"):
+                imhl = []
+                for im in os.listdir("static/slides"):
+                    imhl.append("<li><img src='static/slides/{0}'></li>".format(im))
+                self.doc.asis(self.hd["general"]["nav"].replace("#", "{0}/logo_300.png".format(self.l)))
                 with self.tag("main"):
-                    with self.tag("div", klass="container"):
-                        with self.tag("div", klass="row"):
-                            with self.tag("center"):
-                                self.doc.stag("img", ("height", "400px"), src="static/slide_min.png")
-                        with self.tag("div", klass="row"):
-                            with self.tag("center"):
-                                with self.tag("h2"):
-                                    with self.tag("font", ("color", "#583F9A")):
-                                        self.text("Coming Soon!")
+                    self.doc.asis(self.hd["general"]["prev17i"].replace("#C", "\n".join(imhl)))
         return self.doc.getvalue()

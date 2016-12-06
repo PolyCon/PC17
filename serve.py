@@ -6,8 +6,12 @@ def make_app():
     return tornado.web.Application([
         (r"/", index.Handler),
         (r"/survey", survey.Handler),
+        (r"/test", test.Handler),
+        (r"/survey", survey.Handler),
+        (r"/message", message.Handler),
+        (r"/directions", directions.Handler),
+        (r"/faq", faq.Handler),
         (r"/static/(.*)", tornado.web.StaticFileHandler, {'path':'static'}),
-        (r"/zohoverify/(.*)", tornado.web.StaticFileHandler, {'path':'zohoverify'}),
     ])
 
 if __name__ == "__main__":
